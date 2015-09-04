@@ -10,15 +10,17 @@ namespace :create_and_update do
     loop do
       response = HTTParty.get "http://datamall.mytransport.sg/ltaodataservice.svc/SBSTRouteSet?$skip=#{num}", headers: headers
       bus_data = response['d']
-      loop do
-        # loop until finished with saving data
-
+      bus_data.each do |params|
+        bus = Bus.find_or_initialize_by(number: params['SR_SVC_NUM'])
+        routes_ids = bus.routes_ids ||= []
+        routes_ids << params['SR_BS_CODE']
+        looping = params['SR_SVC_DIR'].to_i == 2 ? false : true
+        bus.update(loop: looping, corp: 'sbs', routes_ids: routes_ids)
       end
 
-      break if response['d'].blank? || response['d'].count < 50
+      break if response['d'].blank? || response['d'].count < 50 || num >= 100
       num += 50
     end
-    response = HTTParty.get "http://datamall.mytransport.sg/ltaodataservice.svc/SBSTRouteSet", headers: headers
   end
 
   desc "TODO"

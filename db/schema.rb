@@ -19,11 +19,10 @@ ActiveRecord::Schema.define(version: 20150904084424) do
   create_table "buses", force: :cascade do |t|
     t.string   "number"
     t.string   "corp"
-    t.text     "routes_id",                                   array: true
-    t.boolean  "loop",           default: false
-    t.string   "reference_code"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "routes_ids",                              array: true
+    t.boolean  "loop",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end
