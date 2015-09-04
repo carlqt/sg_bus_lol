@@ -11,8 +11,8 @@ namespace :create_and_update do
       response = HTTParty.get "http://datamall.mytransport.sg/ltaodataservice.svc/SBSTRouteSet?$skip=#{num}", headers: headers
       bus_data = response['d']
       loop do
+        # loop until finished with saving data
 
-        break if
       end
 
       break if response['d'].blank? || response['d'].count < 50
