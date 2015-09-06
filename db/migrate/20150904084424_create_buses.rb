@@ -3,7 +3,7 @@ class CreateBuses < ActiveRecord::Migration
     create_table :buses do |t|
       t.string :number
       t.string :corp
-      t.integer :routes_ids, array: true
+      t.string :routes_ids, array: true
       t.boolean :loop, default: false
 
       t.timestamps null: false

@@ -26,6 +26,7 @@ gem 'pry-rails'
 gem 'httparty'
 gem 'pg'
 gem 'haml-rails', '~> 0.9'
+gem 'ruby-progressbar'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
