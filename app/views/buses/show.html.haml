@@ -1,0 +1,5 @@
+.container
+  %h1= @bus.number
+  %ul
+    - @bus_routes.each do |station|
+      %li= "#{station.try(:description)} - #{station.try(:code)}"

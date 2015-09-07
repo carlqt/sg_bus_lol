@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :buses, only: :show
+
   get 'site/index'
   root 'site#index'
 

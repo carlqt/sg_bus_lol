@@ -3,9 +3,10 @@
   %p Find me in app/views/site/index.html.haml
 
   - @stations.each do |station|
-    %ul= station.description
+    %h1= "#{station.description} (#{station.code})"
+    %ul
     - station.buses.each do |bus|
       %li
-        = link_to bus.number, '#'
+        = link_to bus.number, bus_path(bus, station_code: station.code)
 
   = paginate @stations

@@ -32,6 +32,7 @@ namespace :create_and_update do
 
   desc "TODO"
   task bus_stations: :environment do
+    Station.create(code: '01012', description: 'Hotel Grand Pacific', road: 'Victoria St')
     progress_bar = ProgressBar.create total: 103
     loop do
       response = HTTParty.get "http://datamall.mytransport.sg/ltaodataservice.svc/BusStopCodeSet?$skip=#{num}", headers: headers
