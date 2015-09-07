@@ -28,6 +28,7 @@ gem 'pg'
 gem 'haml-rails', '~> 0.9'
 gem 'ruby-progressbar'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -41,6 +42,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'thin'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
