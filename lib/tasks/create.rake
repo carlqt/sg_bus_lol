@@ -4,10 +4,11 @@ namespace :create_and_update do
   unique_user_id = Rails.application.secrets['unique_user_key']
   headers = { 'UniqueUserID' => unique_user_id, 'AccountKey' => account_key, 'Accept' => 'application/json' }
   num = 0
+  ctr = 0
 
   desc "TODO"
   task sbs_bus_services: :environment do
-    progress_bar = ProgressBar.create total: 324
+    progress_bar = ProgressBar.create total: 325
 
     loop do
       progress_bar.increment
@@ -22,10 +23,11 @@ namespace :create_and_update do
         bus.update(loop: looping, corp: 'sbs', routes_ids: routes_ids)
       end
 
+      ctr += 1
       break if response['d'].blank? || response['d'].count < 50
       num += 50
     end
-    puts "There are a total of #{num / 50} api calls to get the data"
+    puts "There are a total of #{ctr} api calls to get the data"
   end
 
   desc "TODO"
@@ -37,19 +39,20 @@ namespace :create_and_update do
       progress_bar.increment
 
       stations.each do |params|
-        station = Station.find_or_initialize_by(station_code: params['SR_SVC_NUM'])
-        station.update(bus_code_id: params['BusStopCodeID'].to_i, station_code: params['Code'], road: params['Road'], summary: params['Summary'], description: params['Description'])
+        station = Station.find_or_initialize_by(code: params['SR_SVC_NUM'])
+        station.update(bus_code_id: params['BusStopCodeID'].to_i, code: params['Code'], road: params['Road'], summary: params['Summary'], description: params['Description'])
       end
 
+      ctr += 1
       break if response['d'].blank? || response['d'].count < 50
       num += 50
     end
-    puts "There are a total of #{num / 50} api calls to get the data"
+    puts "There are a total of #{ctr} api calls to get the data"
   end
 
   desc "TODO"
   task smrt_bus_services: :environment do
-    progress_bar = ProgressBar.create total: 130
+    progress_bar = ProgressBar.create total: 131
 
     loop do
       progress_bar.increment
@@ -64,9 +67,10 @@ namespace :create_and_update do
         bus.update(loop: looping, corp: 'smrt', routes_ids: routes_ids)
       end
 
+      ctr += 1
       break if response['d'].blank? || response['d'].count < 50
       num += 50
     end
-    puts "There are a total of #{num / 50} api calls to get the data"
+    puts "There are a total of #{ctr} api calls to get the data"
   end
 end

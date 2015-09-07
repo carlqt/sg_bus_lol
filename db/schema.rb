@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20150905151909) do
 
   create_table "stations", force: :cascade do |t|
     t.integer  "bus_code_id"
-    t.string   "station_code"
+    t.string   "code"
     t.string   "road"
     t.string   "description"
     t.string   "summary"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
