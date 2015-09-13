@@ -210,7 +210,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.5)
   byebug
-  coffee-rails (~> 4.1.0)
   factory_girl_rails
   haml-rails (~> 0.9)
   httparty

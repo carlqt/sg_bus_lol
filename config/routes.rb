@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :buses, only: :show
 
+  get 'site/location'
+  get 'site/nearby_buses'
   get 'site/index'
   root 'site#index'
 
