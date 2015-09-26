@@ -10,5 +10,9 @@ class Location
       stations[:bus_stops] = response['results'].map { |station| station['name'] }
       stations
     end
+
+    def nearby_buses1(lat, lon)
+      Station.near([lat, lon], 0.5, unit: :km)
+    end
   end
 end
