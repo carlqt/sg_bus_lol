@@ -19,7 +19,4 @@ function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
 
-
-$('#network').on("click", function() {
-  navigator.geolocation.getCurrentPosition(success, error, options);
-});
+window.onload = navigator.geolocation.getCurrentPosition(success, error, options);
