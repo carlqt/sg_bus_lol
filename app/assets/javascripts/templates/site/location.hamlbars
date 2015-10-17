@@ -1,4 +1,5 @@
-= hb 'each station' do
+= hb 'each stations' do
   %h1 {{ description }}({{code}})
   = hb 'each buses' do
-    %li {{ this }}
+    %li
+      %a{ "href" => "{{url}}" } {{ bus_code }}

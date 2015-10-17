@@ -8,6 +8,5 @@ class SiteController < ApplicationController
 
   def nearby_buses
     @stations = Location.nearby_buses1(params[:lat], params[:long])
-    # render json: @stations
   end
 end

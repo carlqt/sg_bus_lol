@@ -7,6 +7,6 @@ class BusesController < ApplicationController
 
   private
   def find_bus
-    @bus = Bus.find_by(id: params[:id])
+    @bus = Bus.find_by(number: params[:id])
   end
 end
