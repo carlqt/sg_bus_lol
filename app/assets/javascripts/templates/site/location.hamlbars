@@ -1,0 +1,4 @@
+= hb 'each station' do
+  %h1 {{ description }}({{code}})
+  = hb 'each buses' do
+    %li {{ this }}

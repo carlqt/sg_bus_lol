@@ -77,6 +77,16 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    hamlbars (2.1.1)
+      execjs (>= 1.2)
+      haml
+      sprockets (>= 2.0)
+      tilt
+    handlebars_assets (0.18)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -214,6 +224,8 @@ DEPENDENCIES
   factory_girl_rails
   geocoder
   haml-rails (~> 0.9)
+  hamlbars
+  handlebars_assets
   httparty
   jbuilder (~> 2.0)
   jquery-rails
