@@ -1,4 +1,6 @@
-window.onload = navigator.geolocation.getCurrentPosition(success, error, options);
+if ($('#location').length > 0) {
+  window.onload = navigator.geolocation.getCurrentPosition(success, error, options);
+}
 
 var options = {
   enableHighAccuracy: true,
