@@ -1,6 +1,9 @@
 !!!
 %html
   %head
+    = javascript_include_tag "vendor/modernizr"
+    = #javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title SgBusLol
     = stylesheet_link_tag    'application', media: 'all'
