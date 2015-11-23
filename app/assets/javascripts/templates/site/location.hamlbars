@@ -1,5 +1,6 @@
 = hb 'each stations' do
   %h1 {{ description }}({{code}})
   = hb 'each buses' do
-    %li
-      %a{ "href" => "{{url}}" } {{ bus_code }}
+    %ul.accordion{ :"data-accordion" => true, :role => "tablist" }
+      %li{ :class => "accordion-item is-active"}
+        %a{ "href" => "{{url}}" } {{ bus_code }}

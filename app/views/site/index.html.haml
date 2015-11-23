@@ -1,12 +1,12 @@
-.container
+.row
   %h1 Site#index
   %p Find me in app/views/site/index.html.haml
 
   - @stations.each do |station|
     %h1= "#{station.description} (#{station.code})"
-    %ul
+    %ul.accordion{ "data-accordion" => true, role: "tablist" }
     - station.buses.each do |bus|
-      %li
-        = link_to bus.number, bus_path(bus.number, station_code: station.code)
+      %li{ class: "accordion-item is-active" }
+        = link_to bus.number, bus_path(bus.number, station_code: station.code), class: "success button"
 
   = paginate @stations
