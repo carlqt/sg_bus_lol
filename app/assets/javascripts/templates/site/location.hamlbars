@@ -3,4 +3,4 @@
   = hb 'each buses' do
     %ul.accordion{ :"data-accordion" => true, :role => "tablist" }
       %li{ :class => "accordion-item is-active"}
-        %a{ "href" => "{{url}}" } {{ bus_code }}
+        %a{ "href" => "{{url}}", "class" => "round button success" } {{ bus_code }}
