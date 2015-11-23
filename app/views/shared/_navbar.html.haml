@@ -1,0 +1,14 @@
+%nav.top-bar{"data-topbar" => "", :role => "navigation"}
+  %ul.title-area
+    %li.name
+      %h1
+        = link_to "SG Bus LoL", root_path
+    %li.toggle-topbar.menu-icon
+      %a{:href => "#"}
+        %span Menu
+  %section.top-bar-section
+    %ul.left
+      %li
+        = link_to "Nearby buses", site_location_path
+      %li
+        = link_to "Favorites", '#'
