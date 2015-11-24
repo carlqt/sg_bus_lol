@@ -2,8 +2,9 @@
   %ul.accordion{ :"data-accordion" => true }
     = hb 'each stations' do
       %li.accordion-navigation
-        %a{ href: "#panel{{code}}", class: "text-center" } {{ description }}({{code}})
-        = hb 'each buses' do
-          %div{ :class => "content text-center", id: "panel{{station_code}}"}
-            %a{ "href" => "{{url}}", "class" => "round button success" } {{ bus_code }}
+        %a{ href: "#panel{{code}}", class: "text-center", "data-panel" => "{{code}}" } {{ description }}({{code}})
+        .panel-container{ id: "{{code}}", hidden: true }
+          = hb 'each buses' do
+            %div{ :class => "text-center", id: "panel{{station_code}}"}
+              %a{ "href" => "{{url}}", "class" => "round button success" } {{ bus_code }}
 

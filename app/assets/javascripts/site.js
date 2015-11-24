@@ -14,7 +14,6 @@ function success(pos) {
   lon = crd.longitude;
 
   $.getJSON("nearby_buses?lat=" + lat + "&long=" + lon, function(data) {
-    console.log(data);
     $("#template").html(HandlebarsTemplates["site/location"](data));
   });
 };
