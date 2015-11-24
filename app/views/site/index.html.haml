@@ -2,9 +2,9 @@
   %ul.accordion{ "data-accordion" => true }
     - @stations.each.with_index do |station, index|
       %li.accordion-navigation
-        = link_to "#{station.description} (#{station.code})", "#panel#{index + 1}a", class: "text-center"
+        = link_to "#{station.description} (#{station.code})", "#panel#{station.code}", class: "text-center"
         - station.buses.each do |bus|
-          %div{ class: "content text-center", id: "panel#{index + 1}a" }
+          %div{ class: "content text-center", id: "panel#{station.code}" }
             = link_to bus.number, bus_path(bus.number, station_code: station.code), class: "round success button"
 
   = paginate @stations
