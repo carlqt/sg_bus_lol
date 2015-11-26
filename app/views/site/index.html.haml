@@ -9,6 +9,6 @@
             - station.all_buses.each do |bus|
               %div{ class: "content text-center", id: "panel#{station.code}" }
                 = link_to bus["code"], bus_path(bus["code"], station_code: station.code), class: "round #{color_code(bus["arrival_time"])} button"
-                = "#{bus["arrival_time"]} minutes"
+                = display_arrival_time(bus["arrival_time"])
 
     = paginate @stations

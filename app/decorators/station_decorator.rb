@@ -17,7 +17,7 @@ class StationDecorator < SimpleDelegator
   end
 
   def minutes_remaining(time)
-    return "not available" if time.nil?
-    ((time.to_time - Time.current) / 1.minutes ).round
+    return if time.nil?
+    arrival_time = ((time.to_time - Time.current) / 1.minutes ).round
   end
 end
