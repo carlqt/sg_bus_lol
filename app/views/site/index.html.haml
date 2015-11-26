@@ -8,7 +8,7 @@
           .panel-container{ id: "#{station.code}", hidden: true}
             - station.all_buses.each do |bus|
               %div{ class: "content text-center", id: "panel#{station.code}" }
-                = link_to bus["code"], bus_path(bus["code"], station_code: station.code), class: "round success button"
+                = link_to bus["code"], bus_path(bus["code"], station_code: station.code), class: "round #{color_code(bus["arrival_time"])} button"
                 = "#{bus["arrival_time"]} minutes"
 
     = paginate @stations
