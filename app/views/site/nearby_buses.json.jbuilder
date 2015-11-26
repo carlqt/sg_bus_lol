@@ -1,9 +1,11 @@
 json.stations @stations do |station|
+  station = StationDecorator.new(station)
   json.code station.code
   json.description station.description
-  json.buses station.buses.pluck(:number) do |bus|
-    json.bus_code bus
-    json.url bus_url(bus, station_code: station.code)
+  json.buses station.all_buses do |bus|
+    json.bus_code bus["code"]
+    json.url bus_url(bus["code"], station_code: station.code)
     json.station_code station.code
+    json.arrival_time bus["arrival_time"]
   end
 end
