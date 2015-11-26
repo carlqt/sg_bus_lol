@@ -21,6 +21,7 @@ module SgBusLol
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.action_controller.include_all_helpers = false
     config.generators do |g|
       g.test_framework :rspec
     end

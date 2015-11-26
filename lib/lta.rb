@@ -1,5 +1,5 @@
 module LTA
-  def self.arrival(bus = nil, station)
+  def self.arrival(station, bus = nil)
     bus = "&ServiceNo=#{bus}" unless bus.nil?
     api_url = "http://datamall2.mytransport.sg/ltaodataservice/BusArrival?BusStopID=#{station}#{bus}"
     HTTParty.get api_url, headers: headers
