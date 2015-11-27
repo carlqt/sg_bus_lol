@@ -6,5 +6,6 @@
         .panel-container{ id: "{{code}}", hidden: true }
           = hb 'each buses' do
             %div{ :class => "text-center", id: "panel{{station_code}}"}
-              %a{ "href" => "{{url}}", "class" => "round button success" } {{ bus_code }}
+              %a{ "href" => "{{url}}", "class" => "round button {{colorCode arrival_time}}" } {{ bus_code }}
+              = hb "displayTime arrival_time"
 
