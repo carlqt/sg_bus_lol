@@ -4,7 +4,7 @@
       - @stations.each.with_index do |station, index|
         - station = StationDecorator.new(station)
         %li.accordion-navigation
-          = link_to "#{station.description} (#{station.code})", "#panel#{station.code}", class: "text-center", "data-panel" => "#{station.code}"
+          = link_to "#{station.description} (#{station.code})", "#panel#{station.code}", class: "text-center station", "data-panel" => "#{station.code}"
           .panel-container{ id: "#{station.code}", hidden: true}
             - station.all_buses.each do |bus|
               %div{ class: "content text-center", id: "panel#{station.code}" }
