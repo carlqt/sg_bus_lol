@@ -3,7 +3,8 @@ require 'delegate'
 class StationDecorator < SimpleDelegator
   def all_buses
     response["Services"].map do |r|
-      { "code" => r["ServiceNo"], "arrival_time" => minutes_remaining(r["NextBus"]["EstimatedArrival"]) }
+      { "code" => r["ServiceNo"], "arrival_time" => minutes_remaining(r["NextBus"]["EstimatedArrival"]),
+        "next_bus_arrival_time" => minutes_remaining(r["SubsequentBus"]["EstimatedArrival"]) }
     end
   end
 

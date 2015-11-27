@@ -7,5 +7,6 @@ json.stations @stations do |station|
     json.url bus_url(bus["code"], station_code: station.code)
     json.station_code station.code
     json.arrival_time bus["arrival_time"]
+    json.next_bus_arrival_time bus["next_bus_arrival_time"]
   end
 end
