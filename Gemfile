@@ -28,6 +28,8 @@ gem 'kaminari'
 gem 'geocoder'
 gem 'handlebars_assets'
 gem 'puma'
+gem 'foundation-icons-sass-rails'
+gem 'coffee-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
