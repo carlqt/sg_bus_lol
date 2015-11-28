@@ -12,3 +12,10 @@
         = link_to "Nearby buses", site_location_path
       %li
         = link_to "Favorites", '#'
+      %li
+        .row.collapse
+          .small-8.columns
+            = text_field_tag :search, nil, placeholder: "Search bus or station"
+          .small-4.columns
+            = link_to "Search", "#", class: "alert button expand"
+
