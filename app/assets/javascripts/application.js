@@ -19,17 +19,29 @@
 
 $(function(){ $(document).foundation(); });
 
-$("#template").on("click", function(e) {
+function nearbyStations() {
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  console.log("hello")
+  navigator.geolocation.getCurrentPosition(success, error, options);
+};
+
+$("#template").on("click", function(el) {
   el = event.target;
 
-  console.log(event.target);
   if (el.tagName == 'A' && el.classList.contains("station")) {
     var station_code = event.target.dataset.panel;
     $("#" + station_code).slideToggle('fast');
+    reload_station(el.parentElement);
     return false;
 
   } else if (el.tagName == "I") {
     reload_station(el.parentElement);
+    return false;
 
   } else {
     return true;
@@ -43,4 +55,8 @@ function reload_station(el) {
     $("#" + stationCode).html(HandlebarsTemplates["site/buses"](data));
   });
 
+};
+
+if ($('#location').length > 0) {
+  nearbyStations();
 };
