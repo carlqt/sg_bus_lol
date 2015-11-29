@@ -22,5 +22,9 @@
                     %p.text-center= display_arrival_time(bus["arrival_time"])
                   .small-4.columns
                     %p.text-center= display_arrival_time(bus["next_bus_arrival_time"])
+            .row
+              .text-center
+                = link_to "#/", class: "reload-station", "data-station" => "#{station.code}" do
+                  %i.fi-loop
 
     = paginate @stations

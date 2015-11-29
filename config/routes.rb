@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'site/location'
   get 'site/nearby_buses'
   get 'site/index'
+  get 'site/reload_station'
   root 'site#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -9,4 +9,9 @@ class SiteController < ApplicationController
   def nearby_buses
     @stations = Location.nearby_buses1(params[:lat], params[:long])
   end
+
+  def reload_station
+    station = Station.find_by(code: params[:station])
+    @buses = station.buses
+  end
 end

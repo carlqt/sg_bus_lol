@@ -22,6 +22,14 @@ $(function(){ $(document).foundation(); });
 $("#template").on("click", "a.station", function(data) {
   var station_code = event.target.dataset.panel;
   $("#" + station_code).slideToggle('fast');
-  console.log($("#" + station_code));
   return false;
+});
+
+$(".reload-station").on("click", function(option) {
+  stationCode = this.dataset.station
+
+  $.getJSON("site/reload_station?station=" + stationCode, function(data) {
+    $("#" + stationCode).html(HandlebarsTemplates["site/buses"](data));
+  });
+
 });

@@ -1,0 +1,21 @@
+.row
+  .small-4.columns
+    %p.bold Bus Number
+  .small-4.columns
+    %p.bold.text-center Arrival Time
+  .small-4.columns
+    %p.bold.text-center Next Bus Arrival Time
+= hb 'each buses' do
+  %div{ :class => "content", id: "panel{{station_code}}"}
+    .row
+      .small-4.columns
+        %a{ "href" => "{{url}}", "class" => "round button {{colorCode arrival_time}}" } {{ bus_code }}
+      .small-4.columns
+        %p.text-center= hb "displayTime arrival_time"
+      .small-4.columns
+        %p.text-center= hb "displayTime next_bus_arrival_time"
+
+.row
+  .text-center
+    %a{ href: "#/", class: "reload-station", "data-station" => "{{code}}" }
+      %i.fi-loop
