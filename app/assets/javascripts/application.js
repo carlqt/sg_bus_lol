@@ -19,17 +19,28 @@
 
 $(function(){ $(document).foundation(); });
 
-$("#template").on("click", "a.station", function(data) {
-  var station_code = event.target.dataset.panel;
-  $("#" + station_code).slideToggle('fast');
-  return false;
+$("#template").on("click", function(e) {
+  el = event.target;
+
+  console.log(event.target);
+  if (el.tagName == 'A' && el.classList.contains("station")) {
+    var station_code = event.target.dataset.panel;
+    $("#" + station_code).slideToggle('fast');
+    return false;
+
+  } else if (el.tagName == "I") {
+    reload_station(el.parentElement);
+
+  } else {
+    return true;
+  };
+
 });
 
-$(".reload-station").on("click", function(option) {
-  stationCode = this.dataset.station
-
+function reload_station(el) {
+  stationCode = el.dataset.station;
   $.getJSON("site/reload_station?station=" + stationCode, function(data) {
     $("#" + stationCode).html(HandlebarsTemplates["site/buses"](data));
   });
 
-});
+};

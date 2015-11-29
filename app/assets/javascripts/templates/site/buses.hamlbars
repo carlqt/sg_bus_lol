@@ -17,5 +17,5 @@
 
 .row
   .text-center
-    %a{ href: "#/", class: "reload-station", "data-station" => "{{code}}" }
+    %a{ href: "#/", class: "reload-station", "data-station" => "{{station_code}}" }
       %i.fi-loop

@@ -5,3 +5,5 @@ json.buses @buses do |bus|
   json.arrival_time bus.arrival_time_in_station(params[:station])
   json.next_bus_arrival_time bus.subsequent_arrival_time(params[:station])
 end
+
+json.station_code params[:station]
