@@ -4,6 +4,7 @@
       %li.accordion-navigation{ "data-station" => "{{code}}" }
         %a{ href: "#panel{{code}}", class: "text-center station", "data-panel" => "{{code}}" } {{ description }}({{code}})
         .panel-container{ id: "{{code}}", hidden: true }
+          = image_tag  "spinnerBig.gif", class: "spinner"
           .row
             .small-4.columns
               %p.bold Bus Number
