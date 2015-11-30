@@ -5,8 +5,9 @@
     %p.bold.text-center Arrival Time
   .small-4.columns
     %p.bold.text-center Next Bus Arrival Time
-= hb 'each buses' do
-  %div{ :class => "content", id: "panel{{station_code}}"}
+
+%div{ :class => "content", id: "panel{{station_code}}"}
+  = hb 'each buses' do
     .row
       .small-4.columns
         %a{ "href" => "{{url}}", "class" => "round button {{colorCode arrival_time}}" } {{ bus_code }}

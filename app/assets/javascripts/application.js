@@ -33,9 +33,13 @@ $("#template").on("click", function(el) {
   el = event.target;
 
   if (el.tagName == 'A' && el.classList.contains("station")) {
-    var station_code = event.target.dataset.panel;
-    reload_station(el.parentElement);
-    $("#" + station_code).slideToggle('fast');
+    var stationCode = event.target.dataset.panel;
+
+    if ($("#panel" + stationCode).length < 1) {
+      reload_station(el.parentElement);
+    };
+
+    $("#" + stationCode).slideToggle('fast');
     return false;
 
   } else if (el.tagName == "I") {
