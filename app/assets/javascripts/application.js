@@ -26,7 +26,6 @@ function nearbyStations() {
     maximumAge: 0
   };
 
-  console.log("hello")
   navigator.geolocation.getCurrentPosition(success, error, options);
 };
 
@@ -35,8 +34,8 @@ $("#template").on("click", function(el) {
 
   if (el.tagName == 'A' && el.classList.contains("station")) {
     var station_code = event.target.dataset.panel;
-    $("#" + station_code).slideToggle('fast');
     reload_station(el.parentElement);
+    $("#" + station_code).slideToggle('fast');
     return false;
 
   } else if (el.tagName == "I") {
@@ -51,7 +50,7 @@ $("#template").on("click", function(el) {
 
 function reload_station(el) {
   stationCode = el.dataset.station;
-  $.getJSON("site/reload_station?station=" + stationCode, function(data) {
+  $.getJSON("reload_station?station=" + stationCode, function(data) {
     $("#" + stationCode).html(HandlebarsTemplates["site/buses"](data));
   });
 

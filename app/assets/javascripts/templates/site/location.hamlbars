@@ -3,7 +3,7 @@
     = hb 'each stations' do
       %li.accordion-navigation{ "data-station" => "{{code}}" }
         %a{ href: "#panel{{code}}", class: "text-center station", "data-panel" => "{{code}}" } {{ description }}({{code}})
-        .panel-container{ hidden: true }
+        .panel-container{ id: "{{code}}", hidden: true }
           .row
             .small-4.columns
               %p.bold Bus Number
