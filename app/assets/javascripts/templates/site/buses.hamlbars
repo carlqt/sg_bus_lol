@@ -1,15 +1,15 @@
 .row
-  .small-4.columns
+  .small-4.columns.text-center
     %p.bold Bus Number
   .small-4.columns
     %p.bold.text-center Arrival Time
   .small-4.columns
-    %p.bold.text-center Next Bus Arrival Time
+    %p.bold.text-center Next Bus
 
 %div{ :class => "content", id: "panel{{station_code}}"}
   = hb 'each buses' do
     .row
-      .small-4.columns
+      .small-4.columns.text-center
         %a{ "href" => "{{url}}", "class" => "round button {{colorCode arrival_time}}" } {{ bus_code }}
       .small-4.columns
         %p.text-center= hb "displayTime arrival_time"

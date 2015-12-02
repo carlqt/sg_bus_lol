@@ -7,16 +7,16 @@
           = link_to "#{station.description} (#{station.code})", "#panel#{station.code}", class: "text-center station", "data-panel" => "#{station.code}"
           .panel-container{ id: "#{station.code}", hidden: true}
             .row
-              .small-4.columns
+              .small-4.columns.text-center
                 %p.bold Bus Number
               .small-4.columns
                 %p.bold.text-center Arrival Time
               .small-4.columns
-                %p.bold.text-center Next Bus Arrival Time
+                %p.bold.text-center Next Bus
             - station.all_buses.each do |bus|
               %div{ class: "content", id: "panel#{station.code}" }
                 .row
-                  .small-4.columns
+                  .small-4.columns.text-center
                     = link_to bus["code"], bus_path(bus["code"], station_code: station.code), class: "round #{color_code(bus["arrival_time"])} button"
                   .small-4.columns
                     %p.text-center= display_arrival_time(bus["arrival_time"])
