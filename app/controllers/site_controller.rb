@@ -6,6 +6,13 @@ class SiteController < ApplicationController
   def location
   end
 
+  def search
+    q = BusAndStationQuery.find(params[:search])
+    return redirect_to station_path(q.id) if q.is_a? Station
+    return redirect_to bus_path(q.id) if q.is_a? Bus
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   def nearby_buses
     @stations = Location.nearby_buses1(params[:lat], params[:long])
   end
