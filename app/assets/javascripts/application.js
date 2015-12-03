@@ -34,12 +34,17 @@ $("#template").on("click", function(el) {
 
   if (el.tagName == 'A' && el.classList.contains("station")) {
     var stationCode = event.target.dataset.panel;
+    var targetPanel = $("#" + stationCode);
 
     if ($("#panel" + stationCode).length < 1) {
       reload_station(el.parentElement);
     };
 
-    $("#" + stationCode).slideToggle('fast');
+    targetPanel.slideToggle('fast');
+    $(".panel-container").not(targetPanel).each(function(){
+      $(this).slideUp();
+    });
+
     return false;
 
   } else if (el.tagName == "I") {
