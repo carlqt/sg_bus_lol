@@ -35,6 +35,7 @@ $("#template").on("click", function(el) {
   if (el.tagName == 'A' && el.classList.contains("station")) {
     var stationCode = event.target.dataset.panel;
     var targetPanel = $("#" + stationCode);
+    var liPanel = $('#station-' + stationCode);
 
     if ($("#panel" + stationCode).length < 1) {
       reload_station(el.parentElement);
@@ -43,7 +44,9 @@ $("#template").on("click", function(el) {
     targetPanel.slideToggle('fast');
     $(".panel-container").not(targetPanel).each(function(){
       $(this).slideUp(function() {
-        $('#station-' + stationCode).get(0).scrollIntoView();
+        if (liPanel.prev().length > 0) {
+          liPanel.get(0).previousSibling.scrollIntoView();
+        } 
       });
     });
 
