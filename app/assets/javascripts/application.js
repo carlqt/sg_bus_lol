@@ -42,7 +42,9 @@ $("#template").on("click", function(el) {
 
     targetPanel.slideToggle('fast');
     $(".panel-container").not(targetPanel).each(function(){
-      $(this).slideUp();
+      $(this).slideUp(function() {
+        $('#station-' + stationCode).get(0).scrollIntoView();
+      });
     });
 
     return false;

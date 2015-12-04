@@ -1,7 +1,7 @@
 .row
   %ul.accordion{ :"data-accordion" => true }
     = hb 'each stations' do
-      %li.accordion-navigation{ "data-station" => "{{code}}" }
-        %a{ href: "#panel{{code}}", class: "text-center station", "data-panel" => "{{code}}" } {{ description }}({{code}})
+      %li.accordion-navigation{ id: "station-{{code}}", "data-station" => "{{code}}" }
+        %a{ href: "#", class: "text-center station", "data-panel" => "{{code}}" } {{ description }}({{code}})
         .panel-container{ id: "{{code}}", hidden: true }
           = image_tag  "spinnerBig.gif", class: "spinner"
