@@ -1,5 +1,6 @@
 class StationDecorator < BaseDecorator
   def all_buses
+    return [] if response["odata.error"].present?
     response["Services"].map do |r|
       { "code" => r["ServiceNo"], "arrival_time" => minutes_remaining(r["NextBus"]["EstimatedArrival"]),
         "next_bus_arrival_time" => minutes_remaining(r["SubsequentBus"]["EstimatedArrival"]) }
