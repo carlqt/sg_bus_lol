@@ -6,7 +6,7 @@ class BaseDecorator < SimpleDelegator
   end
 
   def minutes_remaining(time)
-    return if time.nil?
+    return if time.blank?
     arrival_time = ((time.to_time - Time.current) / 1.minutes ).round
   end
 end
