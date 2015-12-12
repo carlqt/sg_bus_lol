@@ -45,7 +45,7 @@ $("#template").on("click", function(el) {
     $(".panel-container").not(targetPanel).each(function(){
       $(this).slideUp(function() {
         if (liPanel.prev().length > 0) {
-          liPanel.get(0).previousSibling.scrollIntoView();
+          liPanel.prev().get(0).scrollIntoView();
         } 
       });
     });
