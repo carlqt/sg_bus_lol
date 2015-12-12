@@ -3,7 +3,7 @@
     %ul.accordion{ "data-accordion" => true }
       - @stations.each.with_index do |station, index|
         - station = StationDecorator.new(station)
-        %li.accordion-navigation
+        %li.accordion-navigation{ id: "station-#{station.code}" }
           = link_to "#{station.description} (#{station.code})", "#panel#{station.code}", class: "text-center station", "data-panel" => "#{station.code}"
           .panel-container{ id: "#{station.code}", hidden: true}
             .row
