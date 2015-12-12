@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Station, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#buses" do
+    it "returns buses that passes along the current bus station" do
+    end
+  end
 end
