@@ -1,3 +1,5 @@
+[![Build Status](https://semaphoreci.com/api/v1/projects/96964a13-f086-4bff-beac-42a577980ab3/633030/badge.svg)](https://semaphoreci.com/carlqt/sg_bus_lol)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
